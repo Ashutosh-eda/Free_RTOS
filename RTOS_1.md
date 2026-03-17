@@ -1,4 +1,4 @@
-# Free_RTOS_0.md
+# Free_RTOS_1.md
 # Introduction to RTOS – Detailed Notes
 
 ---
