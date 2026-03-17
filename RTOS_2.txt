@@ -1,0 +1,83 @@
+# FreeRTOS – Distilled Notes
+
+## 1. Accessing Source Code
+- FreeRTOS source and documentation are available online
+- Documentation explains porting and configuration
+
+## 2. Core Source Files
+Common kernel files:
+- `tasks.c`
+- `queue.c`
+- `list.c`
+
+Port-specific file:
+- `port.c`
+
+## 3. Portability Structure
+Port files are located in:
+Source/portable/<compiler>/<architecture>/port.c
+
+Memory management:
+Source/portable/MemMang/heap_x.c
+
+- `heap_x.c` defines dynamic memory allocation strategy
+- Assembly files may also be required for some ports
+
+## 4. FreeRTOS Plus
+- Includes additional libraries:
+  - TCP/IP stack
+  - UDP support
+  - Middleware
+
+## 5. Integration
+- Link all required files into your project
+- Configure using `FreeRTOSConfig.h`
+
+## 6. ESP32 Architecture
+- Dual-core processor
+- Supports SMP (Symmetric Multiprocessing)
+- Can be configured for single-core mode
+
+## 7. Development Setup
+- Use Arduino IDE
+- Install ESP32 board package
+- Select correct board in Board Manager
+
+## 8. Configuration Parameters
+Defined in `FreeRTOSConfig.h`:
+- Task priorities
+- Stack size (~768 bytes typical)
+- Tick configuration
+
+## 9. Tick Timer
+- Hardware timer generates periodic interrupts
+- Scheduler runs at each tick
+
+Delay API:
+vTaskDelay(number_of_ticks)
+
+## 10. Task Creation
+xTaskCreate()
+
+Parameters:
+- Task function
+- Task name
+- Stack size
+- Priority
+- Parameters (can be NULL)
+- Task handle
+
+ESP32-specific:
+xTaskCreatePinnedToCore()
+
+## 11. Non-Blocking Delay
+Use:
+vTaskDelay()
+
+- Allows other tasks to execute
+
+## 12. Scheduler Start
+vTaskStartScheduler()
+
+- Starts task scheduling
+- Tasks execute based on priority

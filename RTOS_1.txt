@@ -1,0 +1,31 @@
+# Introduction to RTOS – Polished Notes
+
+## 1. Interrupt Service Routine (ISR)
+An Interrupt Service Routine (ISR) is used to handle quick, short tasks that require an immediate response.  
+ISRs are typically suitable for operations that must complete within **less than ~1 ms** and should avoid long computations or blocking operations.
+
+## 2. Superloop Architecture
+Small microcontrollers often use a **superloop architecture**, where the main program repeatedly executes tasks in a loop.  
+If one task takes too long, it delays others—this is where an **RTOS** helps.
+
+## 3. RTOS on Single-Core MCUs
+Even on a **single-core MCU**, RTOS enables multitasking using **time slicing**.
+
+## 4. Task vs Thread
+- **Task**: Unit of work  
+- **Thread**: Has its own PC, registers, and stack  
+(In RTOS, these terms are often used interchangeably)
+
+## 5. Memory Requirements
+RTOS requires sufficient memory for:
+- Scheduler
+- Task stacks
+- Kernel services
+
+## 6. Concurrent Execution
+Allows multiple system components (sensors, communication, control logic) to run **concurrently**.
+
+## 7. FreeRTOS
+- One of the most popular open-source RTOS  
+- Maintained by Amazon  
+- Supported on platforms like **ESP32**
