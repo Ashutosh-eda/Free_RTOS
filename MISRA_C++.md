@@ -516,4 +516,4 @@ All of these rules can also be found on the MathWorks website:
 
 https://in.mathworks.com/help/bugfinder/misra-cpp-2023-rules-and-directives.html
 
-If you want, I can keep adding more rules from the same source and expand this into a fuller study note.
+
